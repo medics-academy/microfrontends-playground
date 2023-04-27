@@ -4,18 +4,18 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 module.exports = {
     mode: "development",
     devServer: {
-        port: 1000
+        port: 1002
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: "container",
-            remotes: {
-                barchart: "barchartModule@http://localhost:1001/remoteEntry.js",
-                linechart: "linechartModule@http://localhost:1002/remoteEntry.js"
+            name: "linechartModule",
+            filename: "remoteEntry.js",
+            exposes: {
+                "./LinechartIndex": "./src/index" // This is an alias for the main index file
             }
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html"
-        })
+        }),
     ]
 }
