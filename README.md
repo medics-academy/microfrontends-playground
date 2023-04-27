@@ -1,1 +1,1 @@
-# micro-front-ends-playground
+# microfrontends-playground
