@@ -7,7 +7,7 @@ module.exports = withModuleFederationPlugin({
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }), // setting strictVersion to true will cause webpack to throw an error if incompatible versions of a dependency are found.
   },
 
 });
