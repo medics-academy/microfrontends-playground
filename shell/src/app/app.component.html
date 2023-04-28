@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<nav>
+  <li [routerLink]="['/']">Home</li>
+  <li [routerLink]="['/', 'heroes']">Tour of heroes</li>
+</nav>
+<div class="container">
+  <h1>My Shell</h1>
+  <router-outlet></router-outlet>
+</div>
+

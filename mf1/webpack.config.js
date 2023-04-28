@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'mf1',
 
   exposes: {
-    './Component': './src/app/app.component.ts',
+    './Module': './src/app/features/heroes/heroes.module.ts',
   },
 
   shared: {

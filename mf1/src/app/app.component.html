@@ -1,3 +1,10 @@
-<h1>Hello world!</h1>
-<h4>This is a microfrontend</h4>
-<router-outlet></router-outlet>
+<nav>
+  <li [routerLink]="['/']">Home</li>
+  <li [routerLink]="['/', 'heroes']">Tour of heroes</li>
+</nav>
+<div class="container">
+  <h1>Hello world!</h1>
+  <h4>This is a microfrontend</h4>
+  <router-outlet></router-outlet>
+</div>
+

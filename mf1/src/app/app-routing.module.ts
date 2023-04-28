@@ -5,7 +5,12 @@ import {HomeComponent} from './core/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'heroes',
+    loadChildren: () => import('./features/heroes/heroes.module').then(m => m.HeroesModule)
   }
 ];
 
