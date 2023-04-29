@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const { ModuleFederationPlugin } = require('webpack').container;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const deps = require('./package.json').dependencies;
 
 module.exports = (env, argv) => {
@@ -23,7 +24,7 @@ module.exports = (env, argv) => {
               will get files overwritten.
             */
 
-            filename: 'mf2-module.js'
+            filename: 'mf2Module.js'
         },
         devServer: {
             port: 3000,
@@ -60,6 +61,7 @@ module.exports = (env, argv) => {
             */
             new ModuleFederationPlugin({
                 name: 'mf2',
+                library: { type: "var", name: "mf2" },
                 /*
                   the remote module is held as filename
                 */
@@ -68,7 +70,7 @@ module.exports = (env, argv) => {
                   it exposes components named  here
                 */
                 exposes: {
-                    './Module': './src/components/Counter',
+                    './CounterModule': './src/components/Counter',
                 },
                 /*
                   this should be the same as the container one.
