@@ -10,18 +10,27 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'heroes',
+    path: 'ngMFE',
     loadChildren: () => import('mf1/Module').then(m => m.HeroesModule)
   },
   {
-    path: 'react',
+    path: 'react-js-MFE',
     component: WebComponentWrapper,
     data: {
-      type: 'script',
+      remoteEntry: 'http://localhost:4204/remoteEntry.js',
+      remoteName: 'react',
+      exposedModule: './web-components',
+      elementName: 'react-element'
+    } as WebComponentWrapperOptions
+  },
+  {
+    path: 'react-ts-MFE',
+    component: WebComponentWrapper,
+    data: {
       remoteEntry: 'http://localhost:3000/remoteEntry.js',
       remoteName: 'mf2',
-      exposedModule: './CounterModule',
-      elementName: 'react-element',
+      exposedModule: './web-components',
+      elementName: 'react-ts-element',
     } as WebComponentWrapperOptions,
   }
 ];
